@@ -3,14 +3,17 @@ const db = require('../data/dbConfig');
 module.exports = {
     add,
     find,
+    findBy,
     findById,
-    update,
-    remove
 };
 
 function find() {
     return db('tools')
     .select('id', 'location', 'tool_name', 'tool_description', 'rental_price', 'length_of_rental', 'status' );
+}
+
+function findBy(filter) {
+    return db('tools').where(filter);
 }
 
 async function add(tool) {
@@ -28,15 +31,3 @@ function findById(id) {
     .where({ id })
     .first();
 }
-
-function update(id, changes) {
-    return db('tools')
-      .where({ id })
-      .update(changes);
-  }
-  
-  function remove(id) {
-    return db('tools')
-      .where('id', id)
-      .del();
-  }
