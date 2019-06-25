@@ -4,6 +4,7 @@ const cors = require('cors');
 
 const authRouter = require('../auth/auth-router');
 const usersRouter = require('../users/users-routers');
+const toolsRouter = require('../tools/tools-router');
 
 const server = express();
 
@@ -13,6 +14,7 @@ server.use(cors());
 
 server.use('/auth', authRouter)
 server.use('/users', usersRouter)
+server.use('/tools', toolsRouter)
 
 server.get('/', (req, res) => {
     res.send( "Hello mate!" )

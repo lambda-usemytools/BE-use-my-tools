@@ -3,20 +3,15 @@ const db = require('../data/dbConfig');
 module.exports = {
     add,
     find,
-    findBy,
     findById,
 };
 
 function find() {
     return db('tools')
-    .select('id', 'tool_name', 'tool_description' );
+    .select('id', 'location', 'tool_name', 'tool_description', 'rental_price', 'length_of_rental', 'status' );
 }
 
-function findBy(filter) {
-    return db('tools').where(filter);
-}
-
-async function add(user) {
+async function add(tool) {
     return db('tools')
     .insert(tool, 'id')
     .then(ids => {
