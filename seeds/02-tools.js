@@ -7,6 +7,7 @@ exports.seed = function (knex, Promise) {
       return knex('tools').insert([
         {
           "owner_id": 3,
+          "image" : "flamethrower.jpg",
           "location": "TBD",
           "tool_name": "Flamethrower",
           "tool_description": "Not a real flamethrower",
@@ -16,6 +17,7 @@ exports.seed = function (knex, Promise) {
         },
 
         { "owner_id": 2,
+        "image" : "tool.jpg",
         "location": "TBD",
         "tool_name": "12v Power Drill",
         "tool_description": "Makita brand 12v power drill with interchangeable attachments and bits",

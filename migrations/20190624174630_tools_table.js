@@ -11,7 +11,7 @@ exports.up = function(knex, Promise) {
         .onDelete('CASCADE')
         .onUpdate('CASCADE');
 
-        // tbl.blob('image')
+        tbl.string('image', 255)
 
         tbl.string('location', 255)
         .notNullable()
