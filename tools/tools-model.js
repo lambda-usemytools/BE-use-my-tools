@@ -5,6 +5,8 @@ module.exports = {
     find,
     findBy,
     findById,
+    update, 
+    remove,
 };
 
 function find() {
@@ -13,6 +15,12 @@ function find() {
 
 function findBy(filter) {
     return db('tools').where(filter);
+}
+
+function findById(id) {
+    return db('tools')
+    .where({ id })
+    .first();
 }
 
 async function add(tool) {
@@ -25,8 +33,16 @@ async function add(tool) {
     });
 }
 
-function findById(id) {
+function update(id, changes) {
     return db('tools')
-    .where({ id })
-    .first();
-}
+      .where({ id })
+      .update(changes);
+  }
+
+  function remove(id) {
+    return db('tools')
+      .where('id', id)
+      .del();
+  }
+
+

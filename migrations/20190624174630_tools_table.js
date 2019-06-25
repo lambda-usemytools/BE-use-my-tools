@@ -11,9 +11,10 @@ exports.up = function(knex, Promise) {
         .onDelete('CASCADE')
         .onUpdate('CASCADE');
 
+        // tbl.blob('image')
+
         tbl.string('location', 255)
         .notNullable()
-        .unique();
 
         tbl.string('tool_name', 255)
         .notNullable();
