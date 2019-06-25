@@ -21,6 +21,9 @@ exports.up = function(knex, Promise) {
         tbl.string('tool_description', 255)
         .notNullable();
 
+        tbl.string('rental_price', 255)
+        .notNullable();
+
         tbl.string('length_of_rental', 255)
         .notNullable();
 

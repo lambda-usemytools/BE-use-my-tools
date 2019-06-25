@@ -14,6 +14,22 @@ router.get('/', (req, res) => {
     })
 }) 
 
+router.get('/:id', (req, res) => {
+    Tools.findById(req.params.id)
+    .then(tool => {
+        if (tool) {
+            res.status(200).json(tool)
+        } 
+        else {
+            res.status(401).json({ message: 'Tool cannot be found' })
+        }
+    })
+    .catch(error => {
+        console.log(error)
+        res.status(500).json(error)
+    })
+}) 
+
 router.post('/', (req, res) => {
     Tools.add(req.body, 'id')
     .then(tool => {
@@ -25,6 +41,7 @@ router.post('/', (req, res) => {
         }
     })
     .catch(error => {
+        console.log(error)
         res.status(500).json(error)
     })
 })

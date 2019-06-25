@@ -8,8 +8,7 @@ module.exports = {
 };
 
 function find() {
-    return db('tools')
-    .select('id', 'location', 'tool_name', 'tool_description', 'rental_price', 'length_of_rental', 'status' );
+    return db('tools');
 }
 
 function findBy(filter) {
