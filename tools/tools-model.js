@@ -36,7 +36,14 @@ async function add(tool) {
 function update(id, changes) {
     return db('tools')
       .where({ id })
-      .update(changes);
+      .update(changes)
+      .then( count => {
+          if(count > 0) {
+              return findById(id)
+          } else {
+              return null
+          }
+       })
   }
 
   function remove(id) {

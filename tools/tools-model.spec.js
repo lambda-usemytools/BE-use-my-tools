@@ -76,6 +76,36 @@ describe('tools model', () => {
         })
     })
 
+    describe('update()', () => {
+        it('should update the information for a provided tool', async () => {
+            await add({      
+                owner_id: 1,
+                image: "cooltool.jpg",
+                location: "TBD",
+                tool_name: "Test Tool",
+                tool_description: "Test description",
+                rental_price: "$100",
+                length_of_rental: "24 hours",
+                status: "Rental"  
+            })
+
+            const changes = ({
+                owner_id: 1,
+                image: "cooltool.jpg",
+                location: "TBD",
+                tool_name: "Updated Test Tool",
+                tool_description: "Updated test description",
+                rental_price: "$100",
+                length_of_rental: "24 hours",
+                status: "Rental"  
+            })
+
+            const result = await update(1, changes)
+
+            expect(result.tool_name).toBe(changes.tool_name)
+        })
+    })
+
     describe('remove()', () => {
         it('should remove the user with id', async() => {
             const tool = await add({     
