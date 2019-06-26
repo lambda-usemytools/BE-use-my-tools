@@ -17,7 +17,7 @@ server.use('/users', usersRouter)
 server.use('/tools', toolsRouter)
 
 server.get('/', (req, res) => {
-    res.send( "Hello mate!" )
+    res.json({ message: "Hello mate!" })
 })
 
 module.exports = server;
