@@ -23,7 +23,7 @@ describe('tools router', () => {
             .expect('Content-Type', /json/i)
         })
 
-        it('responds with 201 GET', () => {
+        it('responds with 201 POST', () => {
             supertest(router).post('/tools')
             .send({   
                 owner_id: 2,

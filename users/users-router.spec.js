@@ -27,10 +27,21 @@ describe('users router', () => {
             supertest(router).post('/users').expect('Content-Type', /json/i)
         })
 
+        it('responds with 201 POST', () => {
+            supertest(router).post('/users')
+            .send({   
+                "first_name": "Bot",
+                "last_name": "One",
+                "email": "test@gmail.com",
+                "password": "pass"
+            })
+            .expect(201)
+        })
+
         it('responds with 500 ERROR', () => {
             supertest(router).post('/userz').expect(500)
         })
-        
+
     })
 
 })
