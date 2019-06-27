@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon index.js",
-    "test": "cross-env DB_ENV=testing jest --watch --verbose false",
+    "test": "cross-env DB_ENV=development jest --watch --verbose false",
     "start": "node index.js"
   },
   "repository": "https://github.com/lambda-usemytools/BE-use-my-tools.git",
