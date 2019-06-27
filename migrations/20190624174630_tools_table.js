@@ -14,8 +14,7 @@ exports.up = function(knex, Promise) {
         tbl.string('image', 255)
 
         tbl.string('location', 255)
-        .notNullable()
-
+        
         tbl.string('tool_name', 255)
         .notNullable();
 
@@ -28,9 +27,15 @@ exports.up = function(knex, Promise) {
         tbl.string('length_of_rental', 255)
         .notNullable();
 
-        tbl.string('status', 255)
+        tbl.boolean('rental', 255)
         .notNullable();
-        
+
+        tbl.boolean('my_network', 255)
+        .notNullable();
+
+        tbl.boolean('my_garage_only', 255)
+        .notNullable();
+
     });
 };
 
