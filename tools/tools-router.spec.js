@@ -33,7 +33,9 @@ describe('tools router', () => {
                 tool_description: "Test description",
                 rental_price: "$100",
                 length_of_rental: "24 hours",
-                status: "Rental"   
+                rental : "true",
+                my_network : "true",
+                my_garage_only : "true"  
             })
             .expect(201)
         })
@@ -55,7 +57,9 @@ describe('tools router', () => {
                 tool_description: "Test description",
                 rental_price: "$100",
                 length_of_rental: "24 hours",
-                status: "Rental"   
+                rental : "true",
+                my_network : "true",
+                my_garage_only : "true" 
             })
             .expect(200)
         })

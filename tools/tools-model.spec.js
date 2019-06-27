@@ -16,13 +16,17 @@ describe('tools model', () => {
         it('should return all tools', async () => {
             await add({ 
             owner_id: 1,
-            image: "cooltool.jpg",
-            location: "TBD",
+            // image: "cooltool.jpg",
+            // location: "TBD",
             tool_name: "Test Tool",
             tool_description: "Test description",
             rental_price: "$100",
             length_of_rental: "24 hours",
-            status: "Rental"
+            rental_price: "$100",
+            length_of_rental: "24 hours",
+            rental : "true",
+            my_network : "true",
+            my_garage_only : "true"
             })
 
             const tools = await find();
@@ -42,13 +46,17 @@ describe('tools model', () => {
             
             const tool = await add({ 
                 owner_id: 2,
-                image: "cooltool.jpg",
-                location: "TBD",
+                // image: "cooltool.jpg",
+                // location: "TBD",
                 tool_name: "Test Tool",
                 tool_description: "Test description",
                 rental_price: "$100",
                 length_of_rental: "24 hours",
-                status: "Rental" 
+                rental_price: "$100",
+                length_of_rental: "24 hours",
+                rental : "true",
+                my_network : "true",
+                my_garage_only : "true"
             })
 
             const result = await findById(1)
@@ -61,13 +69,17 @@ describe('tools model', () => {
         it('should insert the provided tool', async () => {
             await add({      
                 owner_id: 2,
-                image: "cooltool.jpg",
-                location: "TBD",
+                // image: "cooltool.jpg",
+                // location: "TBD",
                 tool_name: "Test Tool",
                 tool_description: "Test description",
                 rental_price: "$100",
                 length_of_rental: "24 hours",
-                status: "Rental"  
+                rental_price: "$100",
+                length_of_rental: "24 hours",
+                rental : "true",
+                my_network : "true",
+                my_garage_only : "true"
             })
 
             const tools = await db('tools');
@@ -80,24 +92,32 @@ describe('tools model', () => {
         it('should update the information for a provided tool', async () => {
             await add({      
                 owner_id: 1,
-                image: "cooltool.jpg",
-                location: "TBD",
+                // image: "cooltool.jpg",
+                // location: "TBD",
                 tool_name: "Test Tool",
                 tool_description: "Test description",
                 rental_price: "$100",
                 length_of_rental: "24 hours",
-                status: "Rental"  
+                rental_price: "$100",
+                length_of_rental: "24 hours",
+                rental : "true",
+                my_network : "true",
+                my_garage_only : "true"
             })
 
             const changes = ({
                 owner_id: 1,
-                image: "cooltool.jpg",
-                location: "TBD",
+                // image: "cooltool.jpg",
+                // location: "TBD",
                 tool_name: "Updated Test Tool",
                 tool_description: "Updated test description",
                 rental_price: "$100",
                 length_of_rental: "24 hours",
-                status: "Rental"  
+                rental_price: "$100",
+                length_of_rental: "24 hours",
+                rental : "true",
+                my_network : "true",
+                my_garage_only : "true"
             })
 
             const result = await update(1, changes)
@@ -110,13 +130,17 @@ describe('tools model', () => {
         it('should remove the user with id', async() => {
             const tool = await add({     
                 owner_id: 2,
-                image: "cooltool.jpg",
-                location: "TBD",
+                // image: "cooltool.jpg",
+                // location: "TBD",
                 tool_name: "Test Tool",
                 tool_description: "Test description",
                 rental_price: "$100",
                 length_of_rental: "24 hours",
-                status: "Rental"   
+                rental_price: "$100",
+                length_of_rental: "24 hours",
+                rental : "true",
+                my_network : "true",
+                my_garage_only : "true"
             })
 
             let tools = await find();

@@ -22,7 +22,7 @@ exports.up = function(knex, Promise) {
         .notNullable();
 
         tbl.string('rental_price', 255)
-        .notNullable();
+        .notNullable(); 
 
         tbl.string('length_of_rental', 255)
         .notNullable();
