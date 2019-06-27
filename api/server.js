@@ -10,7 +10,10 @@ const server = express();
 
 server.use(helmet());
 server.use(express.json());
-server.use(cors());
+server.use(cors( {
+    origin: true,
+    credentials: true
+}) );
 
 server.use('/auth', authRouter)
 server.use('/users', usersRouter)
