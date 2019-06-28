@@ -1,9 +1,9 @@
 const router = require('express').Router();
 
 const Tools = require('./tools-model');
-// const restricted = require('../auth/restricted');
+const restricted = require('../auth/restricted');
 
-router.get('/', (req, res) => {
+router.get('/', restricted, (req, res) => {
     Tools.find()
     .then(tools => {
         res.status(200).json(tools)
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
     })
 }) 
 
-router.get('/:id', (req, res) => {
+router.get('/:id', restricted, (req, res) => {
     Tools.findById(req.params.id)
     .then(tool => {
         if (tool) {
@@ -30,7 +30,7 @@ router.get('/:id', (req, res) => {
     })
 }) 
 
-router.post('/', (req, res) => {
+router.post('/', restricted, (req, res) => {
     Tools.add(req.body, 'id')
     .then(tool => {
         if (tool) {
@@ -46,7 +46,7 @@ router.post('/', (req, res) => {
     })
 })
 
-router.put('/:id', async (req ,res) => {
+router.put('/:id', restricted, async (req ,res) => {
     try {
         const tool = await Tools.update(req.params.id, req.body);
         if (tool) {
@@ -62,7 +62,7 @@ router.put('/:id', async (req ,res) => {
     }
 })
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', restricted, async (req, res) => {
     try {
         const count = await Tools.remove(req.params.id);
         if ( count > 0 ) {
